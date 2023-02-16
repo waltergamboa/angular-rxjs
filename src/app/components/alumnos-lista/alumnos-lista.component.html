@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <button mat-raised-button color="primary" (click)="agregarAlumno()">Agregar</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <h1>Promesa</h1>
+        <div class="col-4" *ngFor="let alumno of alumnos">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{alumno.nombre}} {{alumno.apellido}}</mat-card-title>
+                    <mat-card-subtitle>{{alumno.direccion}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image  src="https://img.freepik.com/vector-gratis/lugar-trabajo-computadora-empresario-vista-superior-concepto-vista-mesa-superior-plana-equipo-creativo-personas-negocios-coleccion-conceptual-personas-creativas-sitio-web_126523-1263.jpg" alt="">
+                <mat-card-content></mat-card-content>
+                <mat-card-footer> {{alumno.correo}}</mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+    <br>    
+    <div class="row">
+        <h1>Pipe Async</h1>
+        <div class="col-4" *ngFor="let alumno of alumnos$ | async">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{alumno.nombre}} {{alumno.apellido}}</mat-card-title>
+                    <mat-card-subtitle>{{alumno.direccion}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image  src="https://img.freepik.com/vector-gratis/lugar-trabajo-computadora-empresario-vista-superior-concepto-vista-mesa-superior-plana-equipo-creativo-personas-negocios-coleccion-conceptual-personas-creativas-sitio-web_126523-1263.jpg" alt="">
+                <mat-card-content></mat-card-content>
+                <mat-card-footer> {{alumno.correo}}</mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <mat-label>
+                Filtrar correo (que incluya el texto, por ejemplo, gmail)
+            </mat-label>
+            <input type="text" matInput [(ngModel)]="filtro">
+
+        </div>
+    <div class="col-2">
+        <button mat-raised-button color="primary" (click)="filtrarAlumnos()">Filtrar</button>
+    </div>
+    <div class="col-4"></div>
+    </div>
+    <div class="row">
+        <h1>Filtrado usando map</h1>
+        <div class="col-4" *ngFor="let alumno of alumnosFiltrado">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{alumno.nombre}} {{alumno.apellido}}</mat-card-title>
+                    <mat-card-subtitle>{{alumno.direccion}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-imagen" mat-card-image  src="https://img.freepik.com/vector-gratis/lugar-trabajo-computadora-empresario-vista-superior-concepto-vista-mesa-superior-plana-equipo-creativo-personas-negocios-coleccion-conceptual-personas-creativas-sitio-web_126523-1263.jpg" alt="">
+                <mat-card-content></mat-card-content>
+                <mat-card-footer> {{alumno.correo}}</mat-card-footer>
+            </mat-card>
+        </div>
+    </div>
+</div>
